@@ -80,8 +80,16 @@ class User {
 
     async buy(){
         const user = this.body;
+        var result = [];
         try{
-            const response = await UserStorage.saveBalance(user);
+            var {a,b,c,d,e,f,g,h,i,j,k} = await UserStorage.getUserInfo(user.id);
+            var arr =[a,b,c,d,e,f,g,h,i,j,k];
+            arr.forEach((value, index)=>{
+                var val = value+user.count[index]||user.count[index];
+                result[index] = val;
+            })
+            
+            const response = await UserStorage.saveBalance(user,result);
             return response;
         }catch(err){
             return {success :false,msg :err};
@@ -103,6 +111,24 @@ class User {
                 success:false
             };
         }
+    }
+
+    async getColumn(){
+        const user = this.body;
+        try{
+            const info = await UserStorage.getInfoByColumn(user.column);
+            return {
+                success:true,
+                info:info
+            };
+
+        }catch(err){
+            return {
+                success:false,
+                msg:err
+            };
+        }
+        
     }
 }
 

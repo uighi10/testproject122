@@ -1,0 +1,14 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: rgb(152, 152, 255);
+  }
+
+.box{
+    background-color: aliceblue;
+}
+.box p{
+    
+    text-align: center;
+}

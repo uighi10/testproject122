@@ -15,7 +15,7 @@ const output ={
         res.render("home/central");
     },
     detail:(req,res)=>{
-        res.render("home/details");
+        res.render("home/ranking");
     }
     
 
@@ -50,6 +50,12 @@ const process ={
     hello : async (req,res)=>{
         const user = new User(req.body);
         const response = await user.update();
+        return res.json(response);
+    },
+
+    ranking:async(req,res)=>{
+        const user = new User(req.body);
+        const response = await user.getColumn();
         return res.json(response);
     }
 }

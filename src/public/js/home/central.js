@@ -9,15 +9,17 @@ const user = document.getElementById('user'),
 
 const stId = localStorage.getItem("stId");
 const id = localStorage.getItem("id");
+
 var iscounted = false;
 var balance = 0;
+var EAcount = [];
 
 if(localStorage.getItem("id")===null){
     alert("로그인");
     location.href ="/login";
 }
-
-user.innerText = '아이디: '+stId;
+ 
+user.innerText = '학번: '+stId;
 
 function fabricate(str) {
     var a ='';
@@ -84,7 +86,7 @@ async function post(where, what){
 
 //count total
 async function count(){
-    const EAcount = [];
+
     for (let index = 0; index < EA.length; index++) {
         EAcount[index] = EA[index].value <= 0 ? 0 : parseInt(EA[index].value,10);
     }
@@ -104,17 +106,18 @@ async function buy(){
     if(iscounted === false){
         alert("count first");return 0;
     }
+
     const req ={
         id : id,
-        balance: balance
+        balance: balance,
+        count: EAcount
     }
+    
     const respond = await post('/centralBuy',req);
     showBuy(respond);
-    
+    updateInfo();
     iscounted =false;
 }
-
-
 
 updateInfo();
 
