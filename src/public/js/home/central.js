@@ -39,12 +39,24 @@ async function updateInfo(){
     
     sValue.forEach((get, idx)=>{
        get.innerText = fabricate(info.stocks[idx].value.toString())+'원';
-       if(info.stocks[idx].fluc === 0)get.style.color = "black";
-       if(info.stocks[idx].fluc === -1)get.style.color = "blue";
-       if(info.stocks[idx].fluc === 1)get.style.color = "red";
+       if(info.stocks[idx].fluc === 0){
+            get.style.color = "black";
+            get.innerHTML += '-';
+       }
+
+       if(info.stocks[idx].fluc === -1){
+            get.style.color = "blue";
+            get.innerHTML += '&#8595';
+        }
+        
+       if(info.stocks[idx].fluc === 1){
+            get.style.color = "red";
+            get.innerHTML += '&#8593';
+       }
+       textC.innerText = '잔액: '+info.balance+'원 ';
     });
     
-    textC.innerText = '잔액: '+info.balance+'원';
+    //textC.innerText = '잔액: '+info.balance+'원';
 
 }
 
