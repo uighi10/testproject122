@@ -189,12 +189,22 @@ html {
   }
 
   @media (max-width: 767px){
+
     .login-box{
+      top: 50%;
+      left: 50%;
+      width: 325px;
+      height: auto;
       position: absolute;
-      top: 60%;
-      left: 55%;
-      box-sizing: content-box;
+      
+      box-sizing: border-box;
     }    
+    .word-box{
+      position: relative;
+      top:30%;
+    }
   }
+
+  
   /*Copyright (c) 2023 by Soufiane Khalfaoui HaSsani (https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda)*/
   
