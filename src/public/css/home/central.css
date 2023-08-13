@@ -1,6 +1,7 @@
 html {
     height: 100%;
   }
+
   body {
     margin:0;
     padding:0;
@@ -39,6 +40,8 @@ html {
     width: 1300px;
     height: 700px;
   }
+
+
   table{
     table-layout: fixed; 
     width: 314px; 
@@ -269,5 +272,21 @@ html {
       bottom: 100%;
     }
   }
+
+  @media (max-width: 767px){
+    .all{
+      box-sizing: border-box;
+      display: block;
+      width: 1100px;
+      height: 700px;
+    }
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background: #243b55
+    }
+  }
+
   /*Copyright (c) 2023 by Soufiane Khalfaoui HaSsani (https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda)*/
   

@@ -8,35 +8,6 @@ html {
     background: linear-gradient(#141e30, #243b55);
   }
 
-  table{
-    position: relative; 
-    table-layout: fixed; 
-    width: 314px; 
-    right: 15%;
-    border-color:#aabcfe;
-    border-spacing:0;
-    border-collapse:collapse; 
-    background:#5fb5d4;
-  }
-
-  table th,td{
-    color: #000000;
-    text-align:center;
-    padding:5px;border:1px solid #000;
-    margin: 5px;
-  }
-  table th{
-    background-color: #7796ba;
-  }
-
-  .table-box{
-    position: absolute;
-    right: 5%;
-  }
-  .table-box h2{
-    color: #aabcfe;
-    text-align: left;
-  }
   .word-box{
     position: absolute;
     top:15%;
@@ -56,25 +27,6 @@ html {
     padding: 0;
     color: #fff;
     text-align: center;
-  }
-
-  .info-box{
-    position:absolute;
-    top:10%;
-    left:100px;
-    width: 200px;
-    padding: 0px;
-    transform: translate(-50%, -50%);
-    background: rgb(255, 255, 255);
-    box-sizing: border-box;
-    border-radius: 5px;
-  }
-
-  .info-box p{
-    margin: 1px;
-    padding: 1px;
-    color:rgb(0, 0, 0);
-    text-align: left;
   }
   
   .login-box {
@@ -234,6 +186,15 @@ html {
     50%,100% {
       bottom: 100%;
     }
+  }
+
+  @media (max-width: 767px){
+    .login-box{
+      position: absolute;
+      top: 60%;
+      left: 55%;
+      box-sizing: content-box;
+    }    
   }
   /*Copyright (c) 2023 by Soufiane Khalfaoui HaSsani (https://codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda)*/
   
