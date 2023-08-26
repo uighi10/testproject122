@@ -31,7 +31,7 @@ class User {
         }catch(err){
             return{
                 success:false,
-                msg:err
+                msg:"아이디가 존재하지 않습니다."
             };
         }
     }
@@ -75,7 +75,7 @@ class User {
         }catch(err){
             return{
                 success:false,
-                msg:err
+                msg:"에러가 발생했습니다."
             }
         }
         
@@ -132,6 +132,56 @@ class User {
             };
         }
         
+    }
+
+    async getBuycount(){
+        const user = this.body;
+        try{
+            const info = await UserStorage.getUserInfo(user.id);
+            return{
+                success:true,
+                info:info
+            }
+        }catch(err){
+            return{
+                success:false,
+                msg:err
+            }
+        }
+    }
+    
+    async sell(){
+        const user = this.body;
+        try{
+            const value = await UserStorage.getStocksValue();
+            var {money,a,b,c,d,e,f,g,h,i,j,k} = await UserStorage.getUserInfo(user.id);
+            const total = value.reduce((total, val,idx)=>{
+                return total += user.countS[idx]*val
+            },0);
+            
+            var arr =[a,b,c,d,e,f,g,h,i,j,k];
+            var countc =[];
+            arr.forEach((value, index)=>{
+                var val = value-user.countS[index];
+                countc[index] = val;
+            });
+            const save ={
+                id:user.id,
+                balance:money + total
+            }
+            const response = await UserStorage.saveBalance(save,countc);
+            if(response.success==true)
+                return{
+                    success:true,
+                    balance:save.balance,
+                    countc:countc
+                };
+        }catch(err){
+            return{
+                success:false,
+                msg:err
+            }
+        }
     }
 }
 

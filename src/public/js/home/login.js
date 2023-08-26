@@ -12,6 +12,7 @@ const id = document.querySelector('#id'),
 
 
 function logincheck(res){
+    console.log(res);
     if(res.success){
         localStorage.setItem("stId",`${stId.value}`);
         localStorage.setItem("id",`${id.value}`);
@@ -19,7 +20,7 @@ function logincheck(res){
     }
     else{
         alert(res.msg);
-        //console.log("hey");
+        
     }
 }
 

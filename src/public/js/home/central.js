@@ -10,7 +10,7 @@ const user = document.getElementById('user'),
 const stId = localStorage.getItem("stId");
 const id = localStorage.getItem("id");
 
-var iscounted = false;
+var isover = false;
 var balance = 0;
 var EAcount = [];
 
@@ -33,7 +33,13 @@ function fabricate(str) {
 async function updateInfo(){
     const info = await post('/',{id:id});
     console.log(info);
+    const color = ['blue', 'black','red'];
     sInfo.forEach((get, idx)=>{
+        if(info.stocks[idx].state.includes('//')){
+            var arr = info.stocks[idx].state.split('//');
+            get.innerHTML = arr[1]+`<br><span style = "color:${color[info.stocks[idx].fluc+1]};font-size:14px">`+arr[0]+'</span>';
+            return;
+        }
         get.innerText = info.stocks[idx].state;
     });
     
@@ -69,6 +75,7 @@ function showCount(res){
     }
     else{
         alert(res.msg);
+        isover = true;
     }
 }
 
@@ -77,7 +84,7 @@ function showBuy(res){
         alert("성공");
     }
     else{
-        alert(res.err);
+        alert("수량을 확인해 주십시오");
     }
 }
 
@@ -109,14 +116,14 @@ async function count(){
     };
     const respond = await post('/centralCount', req);
     showCount(respond);
-    iscounted = true;
+    
 }
 
 
 //buy stocks
 async function buy(){
-    if(iscounted === false){
-        alert("count first");return 0;
+    if(isover === true){
+        alert("잔액이 부족합니다.");return 0;
     }
 
     const req ={
@@ -128,16 +135,13 @@ async function buy(){
     const respond = await post('/centralBuy',req);
     showBuy(respond);
     updateInfo();
-    iscounted =false;
 }
 
 updateInfo();
 
-EA.forEach((event)=>{
-    event.addEventListener("change",()=>{
-        iscounted =false;
-    })
+EA.forEach(element => {
+    element.addEventListener("change",count);
 });
 
+
 buybtn.addEventListener("click",buy);
-countbtn.addEventListener("click",count);

@@ -6,12 +6,16 @@ html {
     margin:0;
     padding:0;
     font-family: sans-serif;
-    background: linear-gradient(#141e30, #243b55);
+    background: blanchedalmond;
+  }
+
+  .EA{
+    width: 60%;
   }
 
   .myButton {
     background-color:#44c767;
-    border-radius:28px;
+    border-radius:20px;
     border:1px solid #18ab29;
     display:inline-block;
     cursor:pointer;
@@ -43,13 +47,14 @@ html {
 
 
   table{
-    table-layout: fixed; 
-    width: 314px; 
-    right: 15%;
     border-color:#aabcfe;
     border-spacing:0;
     border-collapse:collapse; 
     background:#5fb5d4;
+
+   
+    margin-left: auto;
+    margin-right: auto;
     
   }
 
@@ -59,8 +64,15 @@ html {
     padding:5px;border:1px solid #000;
     margin: 5px;
   }
+
   table th{
     background-color: #7796ba;
+  }
+  
+  table td{
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
   }
 
   .table-box{
@@ -68,12 +80,8 @@ html {
     right: 0%;
     top:15%
   }
-  .table-box h2{
-    color: #aabcfe;
-    text-align: left;
-  }
 
-  .word-box{
+  /* .word-box{
     position: absolute;
     top:15%;
     left: 50%;
@@ -271,7 +279,9 @@ html {
     50%,100% {
       bottom: 100%;
     }
-  }
+  } */
+
+
 
   @media (max-width: 767px){
     .all{

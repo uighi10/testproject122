@@ -1,120 +1,126 @@
-<!DOCTYPE html>
-<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/home/central.css"/>
-    <script defer src="/js/home/central.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/home/sell.css"/>
+    <script defer src="/js/home/sell.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <p id = "rank"></p>
     <table>
-        <caption style="color: bisque; text-align: center;"><p id="user">아이디: </p></caption>
         <thead>
             <tr>
                 <th>기업</th>
-                <th>기업정보</th>
                 <th>가격</th>
                 <th>개수</th>
+                <th>팔기</th>
             </tr>
         </thead>
-
         <tfoot>
             <tr>
-              <th colspan="4">
-                <a href="/ranking" class="myButton">순위</a>
-                <a id ="buybtn" class="myButton">사기</a>
-                <a href ="/sell" class="myButton">팔기</a>
-                <p id="balance">예상잔액: </p>
-                <p id="currentM">잔액: </p>
-            </th>
+                <th colspan="4">
+                    <a id="sellBtn" class="myButton">팔기</a>
+                    <a href="/central" class="myButton">사기</a>
+                    <a href="/ranking" class="myButton">순위</a>
+                    <p id = balance>잔액:</p>
+                </th>
             </tr>
         </tfoot>
         <tbody>
             <tr>
                 <td class="sName"><strong style="color: red;">A</strong>엔터</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: orange;">B</strong>엔터</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: yellow;">C</strong>건설</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: yellowgreen;">D</strong> IT</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: rgb(52, 82, 94);">E</strong> 뷰티</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: blue;">F</strong>바이오</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: darkblue;">G</strong>자동차</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: rgb(248, 95, 248);">H</strong> 화학</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: darkmagenta;">I</strong> 조선</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: darkred;">J</strong> 식품</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
+                
                 <td>
                     <input  class = "EA" type="number" name="" required="">
                 </td>
             </tr>
             <tr>
                 <td class="sName"><strong style="color: rgb(47, 6, 37);">K</strong> 항공</td>
+                <td class="sValue"></td>
                 <td class="sInfo">hello</td>
-                <td class="sValue">hello</td>
                 <td>
                     <input class = "EA" type="number" name="" required="">
                 </td>
@@ -122,10 +128,5 @@
             <tr>
             </tr>
         </tbody>
-        
     </table>
-
-</body>
-
-
 </html>

@@ -16,8 +16,10 @@ const output ={
     },
     detail:(req,res)=>{
         res.render("home/ranking");
+    },
+    sell:(req,res)=>{
+        res.render("home/sell");
     }
-    
 
 };
 
@@ -56,6 +58,18 @@ const process ={
     ranking:async(req,res)=>{
         const user = new User(req.body);
         const response = await user.getColumn();
+        return res.json(response);
+    },
+
+    getInfo:async(req,res)=>{
+        const user = new User(req.body);
+        const response = await user.getBuycount();
+        return res.json(response);
+    },
+
+    sell:async(req,res)=>{
+        const user = new User(req.body);
+        const response = await user.sell();
         return res.json(response);
     }
 }
