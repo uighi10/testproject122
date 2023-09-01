@@ -19,6 +19,9 @@ const output ={
     },
     sell:(req,res)=>{
         res.render("home/sell");
+    },
+    before:(req,res)=>{
+        res.render("home/before");
     }
 
 };

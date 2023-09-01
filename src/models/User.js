@@ -2,7 +2,7 @@
 const UserStorage = require('./Userstorage');
 var body;
 const stIds = [1,2,3,4,5];
-const N = 30;
+const N = 31;
 const arr = [...Array(N)].map((_, index) => index + 3601);
 stIds.push(...arr);
 class User {
@@ -15,7 +15,7 @@ class User {
         try{
             const {id, psword,stId} = await UserStorage.getUserInfo(user.id);
             if(id){
-                if(id === user.id && psword === user.psword&& stId === user.stId){
+                if(id === user.id && psword === user.psword){
                     return {success:true}
                 }
                 return {

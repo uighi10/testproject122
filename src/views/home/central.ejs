@@ -2,18 +2,25 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"  content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" >
     <link rel="stylesheet" type="text/css" href="/css/home/central.css"/>
     <script defer src="/js/home/central.js"></script>
     <title>Document</title>
 </head>
 <body>
     <table>
-        <caption style="color: bisque; text-align: center;"><p id="user">아이디: </p></caption>
+        <caption style="color: rgb(166, 164, 164); text-align: center;">
+            <p id="user">아이디: </p>
+            <label class="switch">
+                <input type="checkbox" id="changeBtn">
+                <span class="slider round"></span>
+            </label>
+            <p></p>
+        </caption>
         <thead>
             <tr>
                 <th>기업</th>
-                <th>기업정보</th>
+                <th id = 'changetext'>기업정보(결과)</th>
                 <th>가격</th>
                 <th>개수</th>
             </tr>

@@ -6,7 +6,6 @@ console.log("loginjs");
 
 const id = document.querySelector('#id'),
         psword = document.querySelector('#psword'),
-        stId = document.querySelector('#stId'),
         loginbtn = document.querySelector('#loginbtn'),
         gotosignUp=document.querySelector('#gotosignUp');
 
@@ -14,7 +13,6 @@ const id = document.querySelector('#id'),
 function logincheck(res){
     console.log(res);
     if(res.success){
-        localStorage.setItem("stId",`${stId.value}`);
         localStorage.setItem("id",`${id.value}`);
         location.href ="/central"; 
     }
@@ -25,11 +23,10 @@ function logincheck(res){
 }
 
 function loginf() {
-    if(!id.value || !psword.value || !stId.value)return alert("입력하십시오.");
+    if(!id.value || !psword.value)return alert("입력하십시오.");
     const req = {
         id: id.value,
         psword:psword.value,
-        stId:parseInt(stId.value)
     }
     fetch('/login',{
         method:"POST",

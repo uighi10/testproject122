@@ -4,22 +4,26 @@ const user = document.getElementById('user'),
         sValue = Array.from(document.getElementsByClassName('sValue')),
         textB = document.getElementById('balance'),
         textC =document.getElementById("currentM"),
+        changetext = document.getElementById('changetext'),
         countbtn = document.getElementById('countbtn'),
+        checkbox = document.querySelector('#changeBtn');
         buybtn = document.getElementById('buybtn');
 
-const stId = localStorage.getItem("stId");
+
 const id = localStorage.getItem("id");
 
 var isover = false;
+var isclicked = false;
 var balance = 0;
 var EAcount = [];
+
 
 if(localStorage.getItem("id")===null){
     alert("로그인");
     location.href ="/login";
 }
  
-user.innerText = '학번: '+stId;
+user.innerText = '안녕하세요.  '+id;
 
 function fabricate(str) {
     var a ='';
@@ -34,30 +38,34 @@ async function updateInfo(){
     const info = await post('/',{id:id});
     console.log(info);
     const color = ['blue', 'black','red'];
+    const sign = ['&#8595', '-','&#8593'];
     sInfo.forEach((get, idx)=>{
         if(info.stocks[idx].state.includes('//')){
             var arr = info.stocks[idx].state.split('//');
-            get.innerHTML = arr[1]+`<br><span style = "color:${color[info.stocks[idx].fluc+1]};font-size:14px">`+arr[0]+'</span>';
+            if(isclicked == true){
+                changetext.innerHTML = "기업정보(결과)"
+                get.innerHTML = arr[1]+`<br><span style = "color:${color[info.stocks[idx].fluc+1]};font-size:14px">`+arr[0]+'</span>';
+            }
+
+            else{
+                changetext.innerHTML ="기업정보"
+                get.innerHTML = arr[2];
+            }
+
             return;
         }
         get.innerText = info.stocks[idx].state;
     });
     
+    
     sValue.forEach((get, idx)=>{
        get.innerText = fabricate(info.stocks[idx].value.toString())+'원';
-       if(info.stocks[idx].fluc === 0){
-            get.style.color = "black";
-            get.innerHTML += '-';
+       if(isclicked == true){
+            get.style.color = color[info.stocks[idx].fluc+1];
+            get.innerHTML += sign[info.stocks[idx].fluc+1];
        }
-
-       if(info.stocks[idx].fluc === -1){
-            get.style.color = "blue";
-            get.innerHTML += '&#8595';
-        }
-        
-       if(info.stocks[idx].fluc === 1){
-            get.style.color = "red";
-            get.innerHTML += '&#8593';
+       else{
+        get.style.color = color[1];
        }
        textC.innerText = '잔액: '+info.balance+'원 ';
     });
@@ -143,5 +151,5 @@ EA.forEach(element => {
     element.addEventListener("change",count);
 });
 
-
 buybtn.addEventListener("click",buy);
+checkbox.addEventListener("change",function(){isclicked = !isclicked; updateInfo();});

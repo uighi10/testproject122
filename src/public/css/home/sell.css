@@ -55,3 +55,19 @@ table td{
     text-overflow: ellipsis; 
     word-wrap: break-word;
   }
+
+  @media (max-width: 767px){
+    .all{
+      box-sizing: border-box;
+      display: block;
+      width: 1100px;
+      height: 700px;
+    }
+    
+    body {
+      margin:0;
+      padding:0;
+      font-family: sans-serif;
+      background: #243b55
+    }
+  }

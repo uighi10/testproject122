@@ -7,6 +7,10 @@ const sellBtn = document.getElementById("sellBtn"),
 var countS = [];
 var countC = [];
 
+if(localStorage.getItem("id")===null){
+    alert("로그인");
+    location.href ="/login";
+}
 async function post(where, what){
     a = await fetch(where, {
         method:"POST",
