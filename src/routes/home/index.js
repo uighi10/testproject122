@@ -7,7 +7,7 @@ const router = express.Router();
 const ctrl = require("./home.ctrl");
 
 router.get('/central',ctrl.output.central);
-router.get('/centralBefore',ctrl.output.central);
+router.get('/centralBefore',ctrl.output.before);
 router.get('/login', ctrl.output.login);
 router.get('/signUp',ctrl.output.signUp);
 router.get('/ranking',ctrl.output.detail);

@@ -1,7 +1,6 @@
 "use strict";
 //프론트 js
 //const { json } = require("express");
-
 localStorage.clear();
 
 const id = document.querySelector('#id'),
@@ -13,7 +12,7 @@ const id = document.querySelector('#id'),
 
 function respond(res){
     if(res.success){
-        location.href ="/login";
+        location.href ="/centralBefore";
         //alert(res.msg);
     }
     else{
