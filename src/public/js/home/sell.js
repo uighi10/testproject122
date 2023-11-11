@@ -1,5 +1,6 @@
 const sellBtn = document.getElementById("sellBtn"),
     textB = document.getElementById("balance"),
+    userText = document.getElementById("user"),
     sInfo = Array.from(document.getElementsByClassName("sInfo")),
     sValue = Array.from(document.getElementsByClassName("sValue")),
     EA =Array.from(document.getElementsByClassName("EA"));
@@ -11,6 +12,9 @@ if(localStorage.getItem("id")===null){
     alert("로그인");
     location.href ="/login";
 }
+
+userText.innerText = '안녕하세요.  '+localStorage.getItem("id");
+
 async function post(where, what){
     a = await fetch(where, {
         method:"POST",
@@ -58,9 +62,11 @@ async function update(){
     }
     var res = await post("/sellget",req);
     const info = await post('/',req);
+    
     sValue.forEach((get, idx)=>{
        get.innerText = fabricate(info.stocks[idx].value.toString())+'원';
     });
+
     if(res.success == true){
         var {money, a,b,c,d,e,f,g,h,i,j,k} = res.info;
         countC=[a,b,c,d,e,f,g,h,i,j,k];

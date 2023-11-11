@@ -89,7 +89,7 @@ function showCount(res){
 
 function showBuy(res){
     if(res.success){
-        alert("성공");
+        EA.forEach(element=>element.value = 0);
     }
     else{
         alert("수량을 확인해 주십시오");
