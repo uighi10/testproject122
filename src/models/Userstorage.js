@@ -12,7 +12,6 @@ const { query } = require('express');
 
 class UserStorage{
 
-    //유저 키값에 대응하는 값얻기
     static getStockInfo(){
         return new Promise((resolve, reject) =>{
             const query = "select * from stocks";
@@ -35,7 +34,7 @@ class UserStorage{
 
     static getStocksValue(){
        return new Promise((resolve, reject) =>{
-        const query = "select * from stocks";
+        const query = "select value from stocks";
         db.query(query,(err, data)=>{
             const info  = [];
             for (let index = 0; index < data.length; index++) {

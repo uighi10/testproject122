@@ -8,8 +8,8 @@ stIds.push(...arr);
 class User {
     constructor(body){
         this.body =body;
+        
     }
-    
     async login(){
         const user = this.body;
         try{
@@ -129,7 +129,7 @@ class User {
             return {
                 success:false,
                 msg:err
-            };
+            }; 
         }
         
     }
