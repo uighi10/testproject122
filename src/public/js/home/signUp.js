@@ -6,7 +6,7 @@ localStorage.clear();
 const id = document.querySelector('#id'),
         psword = document.querySelector('#psword'),
         signUpbtn = document.querySelector('#signUpbtn'),
-        stId = document.querySelector('#stId'),
+        stName = document.querySelector('#stName'),
         confirmpsword = document.querySelector('#confirmpsword');
 
 
@@ -28,7 +28,7 @@ function signUp() {
     const req = {
         id: id.value,
         psword:psword.value,
-        stId: parseInt(stId.value)
+        name: stName.value
     }
     fetch('/signUp',{
         method:"POST",

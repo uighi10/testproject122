@@ -1,10 +1,7 @@
 //Userstorage에서 가져온거 쓰는 코드
 const UserStorage = require('./Userstorage');
 var body;
-const stIds = [1,2,3,4,5];
-const N = 31;
-const arr = [...Array(N)].map((_, index) => index + 3601);
-stIds.push(...arr);
+
 class User {
     constructor(body){
         this.body =body;
@@ -13,7 +10,7 @@ class User {
     async login(){
         const user = this.body;
         try{
-            const {id, psword,stId} = await UserStorage.getUserInfo(user.id);
+            const {id, psword} = await UserStorage.getUserInfo(user.id);
             if(id){
                 if(id === user.id && psword === user.psword){
                     return {success:true}
@@ -39,14 +36,10 @@ class User {
     async save(){
         const user = this.body;
         try{
-            if(!stIds.includes(user.stId))return {
-                success:false,
-                msg:"누구세요?"
-            };
             const response = await UserStorage.saveUserInfo(user);
             return response;
         }catch(err){
-            return {success :false,msg :"이미 존재하는 학번 또는 id 입니다."};
+            return {success :false,msg :"이미 존재하는 id 입니다."};
         }
 
     }

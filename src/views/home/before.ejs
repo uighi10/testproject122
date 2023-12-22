@@ -1,7 +1,32 @@
 <!DOCTYPE html>
-<!--need subscription-->
+<!--설명창-->
 <head>
     <style>
+        .css-button {
+            color: #000000;
+            font-size: 16px;
+            border-radius: 5px;
+            border: solid 1px #dcdcdc;
+            padding: 10px 18px;
+            text-shadow: 1px 1px 0px #ffffff;
+            box-shadow: inset 1px 1px 2px 0px #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial;
+            background: linear-gradient(180deg, #ededed 10%, #dfdfdf 100%);
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .css-button:hover {
+            background: linear-gradient(180deg, #dfdfdf 10%, #ededed 100%);
+        }
+        .css-button-text {
+            position: relative;
+            display: inline-block;
+
+        }
         .obx{
             color: black;
             width: auto;
@@ -36,6 +61,9 @@
             background: #243b55
             }
         }
+        body {
+            background-color: #243b55;
+        }
         
     </style>
 </head>
@@ -58,7 +86,9 @@
             
         </table>
     </div>
-    <a href="/central" class="myButton">알겠다</a>
+    <a type="button" class="css-button" href="/central">
+        <span class="css-button-text">알겠다</span>
+    </a>
     
 </body>
 </html>

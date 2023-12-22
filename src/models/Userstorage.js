@@ -72,8 +72,8 @@ class UserStorage{
 
     static saveUserInfo(userInfo){
         return new Promise((resolve, reject) =>{
-            const query = "insert into users(id, psword,stId,money) values(?,?,?,?);";
-            db.query(query,[userInfo.id,userInfo.psword,userInfo.stId,300000],(err)=>{
+            const query = "insert into users(id, psword,name,money) values(?,?,?,?);";
+            db.query(query,[userInfo.id,userInfo.psword,userInfo.name,300000],(err)=>{
                 if(err) reject(`${err}`);
                 resolve({success: true});
             });
