@@ -18,14 +18,6 @@ const logger = createLogger({
     })]
 });
 
-if(env.NODE_ENV !== "dev"){
-    logger.add(
-        new transports.Console({
-            level:"info",
-            format: printLog
-        })
-    );
-}
 
 
 module.exports = logger;

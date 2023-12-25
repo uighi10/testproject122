@@ -3,7 +3,7 @@
 //const { json } = require("express");
 
 localStorage.clear();
-console.log("loginjs");
+
 
 const id = document.querySelector('#id'),
         psword = document.querySelector('#psword'),
